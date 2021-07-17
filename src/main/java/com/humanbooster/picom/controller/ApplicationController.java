@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -139,6 +141,12 @@ public class ApplicationController {
                 Double randomPrice = Math.random() * 100;
                 tariffService.saveTariff(new Tariff(randomPrice,areaService.getAreaByName("Hyper-centre"), timeSlot));
             }
+        }
+
+        if (commercialService.getCommercials().isEmpty()){
+            List<Area> areas = new ArrayList<>();
+            areas.add(areaService.getAreaByName("Hyper-centre"));
+            commercialService.saveHTMLCommercial(new HTMLCommercial("Promo IKEA Août",LocalDateTime.now(),LocalDateTime.now(),LocalDateTime.now(),userService.getClientByMail("b@b.com"),areas,"test"));
         }
 
     }

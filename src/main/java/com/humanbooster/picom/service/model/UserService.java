@@ -18,6 +18,8 @@ public interface UserService {
 
     User getUserByMail(String email);
 
+    Client getClientByMail(String email);
+
     Page<User> getUsers(Pageable pageable);
 
     Page<User> getUsersFilteredByFirstName(Pageable pageable, String firstNameFilter);

@@ -1,5 +1,7 @@
 package com.humanbooster.picom.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -21,14 +23,17 @@ public abstract class User {
     @NotBlank(message = "Merci de renseigner votre prénom.")
     private String lastName;
 
+    @JsonIgnore
     @Email(message = "Merci de saisir un email au bon format.")
     @NotBlank(message = "Merci de renseigner votre email.")
     private String mail;
 
+    @JsonIgnore
     @NotBlank(message = "Merci de renseigner votre mot de passe.")
     @Size(min = 8, message = "Merci de saisir un mot de passe contenant au moins 8 caractères.")
     private String password;
 
+    @JsonIgnore
     private Boolean isActive;
 
     @ManyToMany(fetch = FetchType.EAGER)

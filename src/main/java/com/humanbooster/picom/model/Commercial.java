@@ -1,5 +1,7 @@
 package com.humanbooster.picom.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,6 +13,8 @@ public abstract class Commercial {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    private String title;
 
     private LocalDateTime creationDate;
 
@@ -24,7 +28,8 @@ public abstract class Commercial {
     @ManyToMany
     private List<Area> areas;
 
-    public Commercial(LocalDateTime creationDate, LocalDateTime startDate, LocalDateTime endDate, Client client, List<Area> areas) {
+    public Commercial(String title, LocalDateTime creationDate, LocalDateTime startDate, LocalDateTime endDate, Client client, List<Area> areas) {
+        this.title = title;
         this.creationDate = creationDate;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -85,5 +90,13 @@ public abstract class Commercial {
 
     public void setAreas(List<Area> areas) {
         this.areas = areas;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

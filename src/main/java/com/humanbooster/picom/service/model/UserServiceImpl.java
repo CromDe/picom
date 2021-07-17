@@ -86,6 +86,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Client getClientByMail(String email) {
+        return clientDAO.getClientByMail(email);
+    }
+
+    @Override
     public Page<User> getUsers(Pageable pageable) {
         return userDAO.findAll(pageable);
     }

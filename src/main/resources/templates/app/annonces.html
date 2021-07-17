@@ -8,10 +8,14 @@
 <body>
 <div th:replace="~{incl/template :: headerappconnected}"></div>
 <div class="container text-center">
-    <h2>Bienvenue <span th:text="${user.lastName}"></span><span th:text="${user.firstName}"></span></h2>
+    <h2 class="mt-2">Bienvenue <span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span></h2>
     <div class="row pt-2">
         <div class="col-12">
-
+            <h3>Liste des campagnes publicitaires : </h3>
+            <ul th:each="annonce:${campagnes}">
+                <li><a th:text="${annonce.title}" th:href=""></a> créée le : <span th:text="${annonce.creationDate}"></span></li>
+            </ul>
+            <a class="fixed-bottom" th:href="@{/app/newcampaign}"><img class="card-img" th:src="@{/img/add-icon.png}"> Déconnexion</a>
         </div>
     </div>
     <div class="row mt-5">

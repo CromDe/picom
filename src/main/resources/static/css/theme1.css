@@ -1,4 +1,4 @@
-*, body {
+body {
 background-color: #dbd9d9;
 }
 
@@ -23,3 +23,9 @@ div.formaccueil{
 .headerappconnected{
     border-bottom: #1c1f23;
 }
+
+.sticky-right{
+    position:-webkit-sticky;
+    position:sticky;
+    right:0;
+    z-index:1020}

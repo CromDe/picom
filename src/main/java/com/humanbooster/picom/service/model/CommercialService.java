@@ -3,6 +3,7 @@ package com.humanbooster.picom.service.model;
 
 import com.humanbooster.picom.model.Client;
 import com.humanbooster.picom.model.Commercial;
+import com.humanbooster.picom.model.HTMLCommercial;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,6 +14,8 @@ public interface CommercialService {
     Commercial saveCommercial(Commercial commercial);
 
     Commercial getCommercialById(Long id);
+
+    HTMLCommercial saveHTMLCommercial(HTMLCommercial htmlCommercial);
 
     Page<Commercial> getCommercialsByClient(Client client, Pageable pageable);
 
